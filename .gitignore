@@ -1,0 +1,67 @@
+### Build ###
+bin/
+obj/
+out/
+
+### User-specific files ###
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+### Visual Studio ###
+.vs/
+*.psess
+*.vsp
+*.dbmdl
+
+### Logs ###
+*.log
+
+### OS files ###
+Thumbs.db
+Desktop.ini
+
+### .NET ###
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Auto Generated Files
+Generated\ Files/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+### Sensitive config files ###
+appsettings.json
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+
+### Node / Tailwind ###
+node_modules/
+dist/
+*.cache
+wwwroot/dist/
+wwwroot/css/output.css
+
+### EF Migrations helper files ###
+Migrations/*Designer.cs
+*_Backup.cs
+
+### Rider / ReSharper ###
+.idea/
+*.DotSettings.user
+_ReSharper.Caches/
+
+### VSCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### Misc ###
+*.DS_Store
+publish/

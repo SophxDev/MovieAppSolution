@@ -1,0 +1,25 @@
+﻿@page
+@model MovieApp.RazorUI.Pages.IndexModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<h1 class="text-4xl font-bold text-center my-10">🎬 Películas</h1>
+
+@if (Model.Movies.Count == 0)
+{
+    <p class="text-red-500 text-center">No se encontraron películas</p>
+}
+else
+{
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
+        @foreach (var movie in Model.Movies)
+        {
+            <div class="bg-white rounded-lg shadow p-4">
+                <img src="@movie.ImageUrl" alt="@movie.Title" class="w-full h-64 object-cover rounded" />
+                <h2 class="text-xl font-semibold mt-4">@movie.Title</h2>
+                <p class="text-sm text-gray-600 mt-2">@movie.Description</p>
+            </div>
+        }
+    </div>
+}
