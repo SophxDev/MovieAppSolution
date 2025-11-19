@@ -167,6 +167,7 @@ MovieApp.API/
 └── Program.cs                   # Configuración de servicios, DI, EF, Swagger, etc.
 
 
+
 🎨 Estructura general – MovieApp.RazorUI:
 
 MovieApp.RazorUI/
@@ -272,16 +273,16 @@ cd MovieAppSolution
 
 2. Configurar la API (MovieApp.API):
 
-2.1. Entrar a la carpeta del proyecto API:
+- Entrar a la carpeta del proyecto API:
 cd MovieApp.API
 Copiar el archivo de ejemplo:
 copy appsettings.example.json appsettings.json
 
-2.2. Editar appsettings.json y colocar tu cadena de conexión de PostgreSQL.
+- Editar appsettings.json y colocar tu cadena de conexión de PostgreSQL.
 Aplicar migraciones (si es necesario):
 dotnet ef database update
 
-2.3. Ejecutar la API:
+- Ejecutar la API:
 dotnet run
 
 
