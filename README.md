@@ -267,58 +267,56 @@ Copiar el archivo de ejemplo:
 
 ▶️ Cómo ejecutar el proyecto en local:
 
-1. Clonar el repositorio
+- Clonar el repositorio
 git clone https://github.com/SophxDev/MovieAppSolution.git
 cd MovieAppSolution
 
-2. Configurar la API (MovieApp.API):
 
-- Entrar a la carpeta del proyecto API:
+- Configurar la API (MovieApp.API):
+
+1. Entrar a la carpeta del proyecto API:
 cd MovieApp.API
 Copiar el archivo de ejemplo:
 copy appsettings.example.json appsettings.json
 
-- Editar appsettings.json y colocar tu cadena de conexión de PostgreSQL.
+2. Editar appsettings.json y colocar tu cadena de conexión de PostgreSQL.
 Aplicar migraciones (si es necesario):
 dotnet ef database update
 
-- Ejecutar la API:
+3. Ejecutar la API:
 dotnet run
 
-
-Por defecto se levanta en algo como:
+4. Por defecto se levanta en algo como:
 https://localhost:7xxx
 http://localhost:5xxx
 
-
-Abrir Swagger en el navegador:
+5. Abrir Swagger en el navegador:
 https://localhost:7xxx/swagger
 
-3. Configurar la UI (MovieApp.RazorUI)
-Desde la raíz de la solución:
+- Configurar la UI (MovieApp.RazorUI)
+1. Desde la raíz de la solución:
 cd ../MovieApp.RazorUI
 
-
-Copiar el archivo de ejemplo:
+2. Copiar el archivo de ejemplo:
 copy appsettings.example.json appsettings.json
 
 
-Asegurarte de que appsettings.json tenga la URL base de la API:
+3. Asegurarte de que appsettings.json tenga la URL base de la API:
 
 {
   "ApiBaseUrl": "https://localhost:7xxx"
 }
 
 
-Ejecutar la UI:
+4. Ejecutar la UI:
 dotnet run
 
 
-Abrir el navegador:
+5. Abrir el navegador:
 https://localhost:7yyy
 
 
-Verás el catálogo de películas consumiendo los datos desde la API.
+6. Verás el catálogo de películas consumiendo los datos desde la API.
 
 ---
 
