@@ -20,8 +20,12 @@ El repositorio contiene **2 proyectos** dentro de la solución `MovieAppSolution
 
 MovieAppSolution/
 │
+
 ├── MovieApp.API/        # Backend: ASP.NET Core Web API (PostgreSQL + EF Core)
+
 └── MovieApp.RazorUI/    # Frontend: Razor UI (Razor Pages + TailwindCSS)
+
+---
 
 
 ## 🚀 Tecnologías principales
@@ -43,6 +47,8 @@ Frontend – MovieApp.RazorUI:
 - Bootstrap (para algunos estilos base)
 - Consumo de API vía servicios HTTP
 
+---
+
 
 ## 🧠 Arquitectura y buenas prácticas
 
@@ -59,84 +65,167 @@ Swagger	Documentación automática de los endpoints de la API.
 EF Core + PostgreSQL	DbContext (Data/ApplicationDbContext.cs) y migraciones en Migrations/.
 
 
-## 🧠 Estructura general – MovieApp.API
+---
+
+
+## 🧠 Estructura general – MovieApp.API:
+
 MovieApp.API/
+
 │
+
 ├── Controllers/                 # Rutas HTTP (API pública)
+
 │   ├── MovieController.cs
+
 │   └── ActorController.cs
+
 │
+
 ├── Data/
+
 │   └── ApplicationDbContext.cs  # DbContext y configuración de EF Core
+
 │
+
 ├── DTOs/                        # Objetos de transferencia (entrada/salida)
+
 │   ├── MovieCreateDto.cs
+
 │   ├── MovieUpdateDto.cs
+
 │   ├── MovieReadDto.cs
+
 │   ├── ActorCreateDto.cs
+
 │   ├── ActorUpdateDto.cs
+
 │   └── ActorReadDto.cs
+
 │
+
 ├── Models/                      # Entidades de dominio
+
 │   ├── Movie.cs
+
 │   ├── Actor.cs
+
 │   └── MovieActor.cs           # Relación N:N
+
 │
+
 ├── Repositories/                # Acceso a datos (EF Core)
+
 │   ├── Interfaces/
+
 │   │   ├── IMovieRepository.cs
+
 │   │   └── IActorRepository.cs
+
 │   └── MovieRepository.cs
+
 │       ActorRepository.cs
+
 │
+
 ├── Services/                    # Lógica de negocio
+
 │   ├── Interfaces/
+
 │   │   ├── IMovieService.cs
+
 │   │   └── IActorService.cs
+
 │   └── MovieService.cs
+
 │       ActorService.cs
+
 │
+
 ├── Validators/                  # Validaciones (FluentValidation)
+
 │   ├── MovieCreateValidator.cs
+
 │   ├── MovieUpdateValidator.cs
+
 │   ├── ActorCreateValidator.cs
+
 │   └── ActorUpdateValidator.cs
+
 │
+
 ├── Mappings/                    # Perfiles de AutoMapper
+
 │   └── AutoMapperProfile.cs
+
 │
+
 ├── appsettings.json             # Configuración real (IGNORADO en Git)
+
 ├── appsettings.example.json     # Plantilla sin credenciales
+
 └── Program.cs                   # Configuración de servicios, DI, EF, Swagger, etc.
 
-🎨 Estructura general – MovieApp.RazorUI
+
+🎨 Estructura general – MovieApp.RazorUI:
+
 MovieApp.RazorUI/
+
 │
+
 ├── Pages/                       # Razor Pages (UI)
+
 │   ├── Index.cshtml             # Catálogo de películas
+
 │   ├── Privacy.cshtml
+
 │   ├── Error.cshtml
+
 │   └── Shared/
+
 │       ├── _Layout.cshtml       # Layout principal
+
 │       └── _ValidationScriptsPartial.cshtml
+
 │
+
 ├── Models/
+
 │   └── Movie.cs                 # Modelo usado en el frontend
+
 │
+
 ├── Services/
+
 │   └── MovieService.cs          # Consumo de la API MovieApp.API
+
 │
+
 ├── wwwroot/                     # Archivos estáticos
+
 │   ├── css/
+
 │   │   ├── site.css
+
 │   │   └── tailwind.css
+
 │   ├── js/site.js
+
 │   └── lib/…                    # Bootstrap, jQuery, etc.
+
 │
+
 ├── appsettings.json             # Config local (IGNORADO en Git)
+
 ├── appsettings.example.json     # Plantilla sin datos sensibles
+
 ├── Program.cs                   # Configuración del host Razor
+
 └── tailwind.config.js           # Configuración de TailwindCSS
+
+
+---
+
 
 ## 🔐 Manejo de configuración y seguridad
 
@@ -162,13 +251,21 @@ Copiar el archivo de ejemplo:
   }
 }
 
+---
+
+
+
 ## 🛠 Requisitos previos:
 - .NET SDK instalado (versión compatible con el proyecto)
 - PostgreSQL (local o en contenedor)
 - Node.js + npm (para TailwindCSS, si quieres recompilar estilos)
 - Git
 
+---
+  
+
 ▶️ Cómo ejecutar el proyecto en local:
+
 1. Clonar el repositorio
 git clone https://github.com/SophxDev/MovieAppSolution.git
 cd MovieAppSolution
@@ -222,6 +319,9 @@ https://localhost:7yyy
 
 Verás el catálogo de películas consumiendo los datos desde la API.
 
+---
+
+
 ## 📡 Endpoints principales (API)
 
 GET /api/movies – Listado de películas
@@ -235,6 +335,9 @@ DELETE /api/movies/{id} – Eliminar película
 Toda la API está documentada en Swagger.
 
 
+---
+
+
 ## 🧪 Posibles mejoras futuras (roadmap):
 
 Autenticación y autorización (JWT + roles)
@@ -245,13 +348,14 @@ Pruebas de integración para la API
 Pruebas automatizadas de UI (Playwright / Selenium)
 Deploy en Azure / Railway / Render
 
+---
+
 👤 Autora
 
 SophxDev
 Software Developer & QA Automation.
 
-💼 GitHub: SophxDev
+⚡ GitHub: SophxDev
+💼 Linkedin: https://www.linkedin.com/in/jaquelineespino/
 
-Si estás viendo este repositorio como reclutador/a:
-este proyecto muestra mi experiencia real trabajando con C#, ASP.NET Core, EF Core, PostgreSQL, arquitectura por capas, buenas prácticas y Razor UI, además de manejo profesional de Git y configuración segura.
-
+---
