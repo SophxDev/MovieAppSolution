@@ -17,14 +17,12 @@ Pensado como proyecto de portafolio para demostrar:
 
 El repositorio contiene **2 proyectos** dentro de la solución `MovieAppSolution.sln`:
 
-
+```bash
 MovieAppSolution/
 │
-
 ├── MovieApp.API/        # Backend: ASP.NET Core Web API (PostgreSQL + EF Core)
-
 └── MovieApp.RazorUI/    # Frontend: Razor UI (Razor Pages + TailwindCSS)
-
+```
 ---
 
 
@@ -52,179 +50,115 @@ Frontend – MovieApp.RazorUI:
 
 ## 🧠 Arquitectura y buenas prácticas
 
-La API está organizada para respetar principios SOLID y separación por capas:
+- La API está organizada para respetar principios SOLID y separación por capas:
 
-Práctica / Principio	Cómo se aplica
-SRP (Single Responsibility)	Carpetas separadas: Controllers, Services, Repositories, DTOs, Validators, etc.
-DIP (Dependency Inversion)	Uso de interfaces en Repositories/Interfaces y Services/Interfaces + inyección de dependencias en Program.cs.
-OCP (Open/Closed)	Repositorios y servicios extensibles sin modificar código existente (nuevos métodos → nuevas implementaciones).
-DTOs	DTOs/ para separar modelos de dominio de los contratos expuestos por la API.
-AutoMapper	Mappings/AutoMapperProfile.cs para mapear DTO ↔ entidades.
-FluentValidation	Validators/ centraliza reglas de validación testables y reutilizables.
-Swagger	Documentación automática de los endpoints de la API.
-EF Core + PostgreSQL	DbContext (Data/ApplicationDbContext.cs) y migraciones en Migrations/.
+- Práctica / Principio	Cómo se aplica
+
+- SRP (Single Responsibility)	Carpetas separadas: Controllers, Services, Repositories, DTOs, Validators, etc.
+
+- DIP (Dependency Inversion)	Uso de interfaces en Repositories/Interfaces y Services/Interfaces + inyección de dependencias en Program.cs.
+
+- OCP (Open/Closed)	Repositorios y servicios extensibles sin modificar código existente (nuevos métodos → nuevas implementaciones).
+
+- DTOs	DTOs/ para separar modelos de dominio de los contratos expuestos por la API.
+
+- AutoMapper	Mappings/AutoMapperProfile.cs para mapear DTO ↔ entidades.
+
+- FluentValidation	Validators/ centraliza reglas de validación testables y reutilizables.
+
+- Swagger	Documentación automática de los endpoints de la API.
+
+- EF Core + PostgreSQL	DbContext (Data/ApplicationDbContext.cs) y migraciones en Migrations/.
 
 
 ---
 
 
 ## 🧠 Estructura general – MovieApp.API:
-
+```bash
 MovieApp.API/
-
 │
-
 ├── Controllers/                 # Rutas HTTP (API pública)
-
 │   ├── MovieController.cs
-
 │   └── ActorController.cs
-
 │
-
 ├── Data/
-
 │   └── ApplicationDbContext.cs  # DbContext y configuración de EF Core
-
 │
-
 ├── DTOs/                        # Objetos de transferencia (entrada/salida)
-
 │   ├── MovieCreateDto.cs
-
 │   ├── MovieUpdateDto.cs
-
 │   ├── MovieReadDto.cs
-
 │   ├── ActorCreateDto.cs
-
 │   ├── ActorUpdateDto.cs
-
 │   └── ActorReadDto.cs
-
 │
-
 ├── Models/                      # Entidades de dominio
-
 │   ├── Movie.cs
-
 │   ├── Actor.cs
-
 │   └── MovieActor.cs           # Relación N:N
-
 │
-
 ├── Repositories/                # Acceso a datos (EF Core)
-
 │   ├── Interfaces/
-
 │   │   ├── IMovieRepository.cs
-
 │   │   └── IActorRepository.cs
-
 │   └── MovieRepository.cs
-
 │       ActorRepository.cs
-
 │
-
 ├── Services/                    # Lógica de negocio
-
 │   ├── Interfaces/
-
 │   │   ├── IMovieService.cs
-
 │   │   └── IActorService.cs
-
 │   └── MovieService.cs
-
 │       ActorService.cs
-
 │
-
 ├── Validators/                  # Validaciones (FluentValidation)
-
 │   ├── MovieCreateValidator.cs
-
 │   ├── MovieUpdateValidator.cs
-
 │   ├── ActorCreateValidator.cs
-
 │   └── ActorUpdateValidator.cs
-
 │
-
 ├── Mappings/                    # Perfiles de AutoMapper
-
 │   └── AutoMapperProfile.cs
-
 │
-
 ├── appsettings.json             # Configuración real (IGNORADO en Git)
-
 ├── appsettings.example.json     # Plantilla sin credenciales
-
 └── Program.cs                   # Configuración de servicios, DI, EF, Swagger, etc.
-
+```
 
 
 🎨 Estructura general – MovieApp.RazorUI:
 
+```bash
 MovieApp.RazorUI/
-
 │
-
 ├── Pages/                       # Razor Pages (UI)
-
 │   ├── Index.cshtml             # Catálogo de películas
-
 │   ├── Privacy.cshtml
-
 │   ├── Error.cshtml
-
 │   └── Shared/
-
 │       ├── _Layout.cshtml       # Layout principal
-
 │       └── _ValidationScriptsPartial.cshtml
-
 │
-
 ├── Models/
-
 │   └── Movie.cs                 # Modelo usado en el frontend
-
 │
-
 ├── Services/
-
 │   └── MovieService.cs          # Consumo de la API MovieApp.API
-
 │
-
 ├── wwwroot/                     # Archivos estáticos
-
 │   ├── css/
-
 │   │   ├── site.css
-
 │   │   └── tailwind.css
-
 │   ├── js/site.js
-
 │   └── lib/…                    # Bootstrap, jQuery, etc.
-
 │
-
 ├── appsettings.json             # Config local (IGNORADO en Git)
-
 ├── appsettings.example.json     # Plantilla sin datos sensibles
-
 ├── Program.cs                   # Configuración del host Razor
-
 └── tailwind.config.js           # Configuración de TailwindCSS
 
-
+```
 ---
 
 
@@ -240,18 +174,18 @@ En su lugar, cada proyecto incluye un archivo de ejemplo:
 - MovieApp.API/appsettings.example.json
 - MovieApp.RazorUI/appsettings.example.json
 
-# ¿Cómo usarlos?
+## ¿Cómo usarlos?
 
 Copiar el archivo de ejemplo:
 1. appsettings.example.json → appsettings.json
 2. Editar appsettings.json con tus valores reales:
-
+```bash
 {
   "ConnectionStrings": {
     "DefaultConnection": "Host=localhost;Port=5432;Database=MovieAppDB;Username=tu_usuario;Password=tu_password"
   }
 }
-
+```
 ---
 
 
@@ -268,9 +202,10 @@ Copiar el archivo de ejemplo:
 ▶️ Cómo ejecutar el proyecto en local:
 
 - Clonar el repositorio
+```bash
 git clone https://github.com/SophxDev/MovieAppSolution.git
 cd MovieAppSolution
-
+```
 
 - Configurar la API (MovieApp.API):
 
@@ -287,8 +222,10 @@ dotnet ef database update
 dotnet run
 
 4. Por defecto se levanta en algo como:
+```bash
 https://localhost:7xxx
 http://localhost:5xxx
+```
 
 5. Abrir Swagger en el navegador:
 https://localhost:7xxx/swagger
@@ -302,21 +239,22 @@ copy appsettings.example.json appsettings.json
 
 
 3. Asegurarte de que appsettings.json tenga la URL base de la API:
-
+```bash
 {
   "ApiBaseUrl": "https://localhost:7xxx"
 }
-
+```
 
 4. Ejecutar la UI:
+```bash
 dotnet run
+```
 
-
-5. Abrir el navegador:
+6. Abrir el navegador:
 https://localhost:7yyy
 
 
-6. Verás el catálogo de películas consumiendo los datos desde la API.
+7. Verás el catálogo de películas consumiendo los datos desde la API.
 
 ---
 
